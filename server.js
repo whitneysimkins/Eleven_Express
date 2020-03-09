@@ -42,7 +42,29 @@ app.get("/api/notes", function(req, res) {
     });
     return res.json(data);
   });
+
+  // note to delete
+app.delete("/api/notes/:id", function(req, res) {
+    data = data.filter(function(data) {
+      if (req.params.id === data.id) {
+        return false;
+      }
+      return true;
+    });
   
+    fs.writeFile("./db/db.json", JSON.stringify(data), function(err) {
+      if (err) throw err;
+      res.end();
+    });
+  
+    return res.json(data);
+  });
+  
+  //server begin listening code: 
+
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 
 
 
