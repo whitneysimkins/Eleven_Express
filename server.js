@@ -23,6 +23,27 @@ app.get("/notes", function(req, res) {
   res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
+// pull from db.json
+app.get("/api/notes", function(req, res) {
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      console.log(data);
+      if (err) throw err;
+      const note = JSON.parse(data);
+      return res.json(note);
+    });
+  });
+  
+  // add to db.json
+  app.post("/api/notes", function(req, res) {
+    data.push(req.body);
+    fs.writeFile("./db/db.json", JSON.stringify(data), function(err) {
+      if (err) throw err;
+      console.log("New post successful!");
+    });
+    return res.json(data);
+  });
+  
+
 
 
 
