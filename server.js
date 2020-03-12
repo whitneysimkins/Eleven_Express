@@ -1,9 +1,17 @@
 //setting up dependencies needed for app created package-lock.json
+// Dependencies
+// =============================================================
 var express = require("express");
 var path = require("path");
-var fs = require("fs");
 
-var app = express()
+// Sets up the Express App
+// =============================================================
+var app = express();
+
+
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 var PORT = process.env.PORT || 3000;
 
