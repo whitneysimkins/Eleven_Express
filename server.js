@@ -20,7 +20,7 @@ app.listen(PORT, function() {
 });
 
 app.get("/", function(req, res) {
-    res.json(path.join(__dirname, "public/index.html"));
+    res.json(path.join(__dirname, "./public/index.html"));
   });
 
 app.get("/", function(req, res) {
