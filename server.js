@@ -4,3 +4,8 @@ var path = require("path");
 var fs = require("fs");
 
 
+var PORT = process.env.PORT || 3000;
+
+app.listen(PORT, function() {
+    console.log(`Now listening on port: ${PORT}`);
+});
