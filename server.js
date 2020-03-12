@@ -9,3 +9,11 @@ var PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
     console.log(`Now listening on port: ${PORT}`);
 });
+
+app.get("/", function(req, res) {
+    res.json(path.join(__dirname, "public/index.html"));
+  });
+
+app.get("/", function(req, res) {
+    res.json(path.join(__dirname, "public/notes.html"));
+  });
