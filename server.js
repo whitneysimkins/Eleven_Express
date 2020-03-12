@@ -1,8 +1,9 @@
 //setting up dependencies needed for app created package-lock.json
-var app = require("express");
+var express = require("express");
 var path = require("path");
 var fs = require("fs");
 
+var app = express()
 
 var PORT = process.env.PORT || 3000;
 
